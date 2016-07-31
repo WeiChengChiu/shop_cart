@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :add_to_cart]
 
   # GET /products
   # GET /products.json
@@ -62,9 +62,9 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-    @cart.add_item(params[:id])
+    @cart.add_item(@product.id)
     session["my_cart_session"] = @cart.serialize
-    redirect_to products_path, notice: "感謝!!"
+    redirect_to products_path, notice: "已將 #{@product.title}加到購物車!!"
   end
 
   private
