@@ -3,4 +3,9 @@ class Order < ApplicationRecord
 
   validates :address, presence: true
   # validates_of address
+
+  # instance methods
+  def serial_generator
+    "OD#{id.to_s.rjust(10, "0")}"
+  end
 end
