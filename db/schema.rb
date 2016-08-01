@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160731133646) do
     t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
@@ -37,7 +38,6 @@ ActiveRecord::Schema.define(version: 20160731133646) do
     t.string   "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "order_id"
   end
 
   create_table "products", force: :cascade do |t|
